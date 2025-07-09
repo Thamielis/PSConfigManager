@@ -1,0 +1,22 @@
+Archive
+Artifacts
+cov.xml
+coverage.xml
+Cobertura.xml
+*.html
+*.css
+*.js
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Coverage/*.htm*
+Coverage/*.css
+Coverage/*.js
+Coverage/*.svg
+*.log
