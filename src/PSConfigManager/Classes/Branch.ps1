@@ -1,6 +1,3 @@
-using module ".\Department.ps1"
-
-. .\src\Entities\Department.ps1
 
 Class Branch {
     [Guid] $Id

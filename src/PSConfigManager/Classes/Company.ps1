@@ -1,6 +1,3 @@
-using module ".\Branch.ps1"
-
-. .\src\Entities\Branch.ps1
 
 Class Company {
     [Guid] $Id
@@ -10,9 +7,16 @@ Class Company {
     [datetime] $CreatedOn
     [System.Collections.Generic.List[Branch]] $Branches
 
+    Company([string]$name) {
+        $this.Id = [Guid]::NewGuid()
+        $this.Name = $name
+    }
+
     Company([string]$name, [string]$country, [string]$owner) {
+
         if ([string]::IsNullOrWhiteSpace($name)) { throw "Company Name is required." }
         if ([string]::IsNullOrWhiteSpace($country)) { throw "Country is required." }
+
         $this.Id = [Guid]::NewGuid()
         $this.Name = $name
         $this.Country = $country

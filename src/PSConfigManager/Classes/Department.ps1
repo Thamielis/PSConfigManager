@@ -1,7 +1,3 @@
-using module ".\SystemEntity.ps1"
-
-. .\src\Entities\SystemEntity.ps1
-
 
 Class Department {
     [Guid] $Id
