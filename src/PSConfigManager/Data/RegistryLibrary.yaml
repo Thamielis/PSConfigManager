@@ -1,0 +1,224 @@
+UAC:
+  ConsentPromptBehaviorAdmin:
+    Category: UAC
+    GPO: 'User Account Control: Behavior of the elevation prompt for administrators in Admin Approval Mode'
+    GPO_Location: Computer Configuration > Windows Settings > Security Settings > Local Policies > Security Options
+    Registry: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+    ValueName: ConsentPromptBehaviorAdmin
+    Explanation: Controls how the UAC elevation prompt is presented for administrator accounts in Admin Approval Mode.
+    Values:
+      '0': Elevate without prompting (no UAC prompt; not recommended for security).
+      '1': Prompt for credentials (administrator must enter username and password) on the secure desktop.
+      '2': Prompt for consent for all elevations (administrator must click "Yes" or "No" for each elevation) on the secure desktop.
+      '5': Prompt for consent for non-Windows binaries only (skip prompt for trusted Windows system binaries; this is the default behavior in Windows 10/11).
+    Compatibility: Windows 10 and Windows 11; all editions (Home, Pro, etc.). Requires UAC (EnableLUA=1) to be enabled.
+    Default: 5 (Prompt for consent for non-Windows binaries on secure desktop by default).
+  ConsentPromptBehaviorUser:
+    Category: UAC
+    GPO: 'User Account Control: Behavior of the elevation prompt for standard users'
+    GPO_Location: Computer Configuration > Windows Settings > Security Settings > Local Policies > Security Options
+    Registry: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+    ValueName: ConsentPromptBehaviorUser
+    Explanation: Controls the UAC behavior for standard (non-admin) users when they attempt an operation that requires elevation.
+    Values:
+      '0': Automatically deny elevation requests (standard user is blocked from running elevated tasks).
+      '1': Prompt for administrator credentials on the secure desktop (standard user must enter admin username/password).
+    Compatibility: Windows 10 and Windows 11; all editions. Effective only when UAC is enabled (EnableLUA=1).
+    Default: 1 (Standard users are prompted to enter credentials by default).
+  EnableLUA:
+    Category: UAC
+    GPO: 'User Account Control: Run all administrators in Admin Approval Mode'
+    GPO_Location: Computer Configuration > Windows Settings > Security Settings > Local Policies > Security Options
+    Registry: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+    ValueName: EnableLUA
+    Explanation: Master switch for UAC. Controls whether UAC is enabled; if set to 0, UAC is completely turned off (all users run with full administrative privileges without prompts).
+    Values:
+      '0': Disabled (UAC is turned off system-wide).
+      '1': Enabled (UAC is active; administrators run with limited token and require elevation for admin tasks).
+    Compatibility: Windows 10 and Windows 11; all editions. Disabling UAC (EnableLUA=0) may break modern UWP apps and is not supported in secure environments.
+    Default: 1 (UAC is enabled by default).
+  PromptOnSecureDesktop:
+    Category: UAC
+    GPO: 'User Account Control: Switch to the secure desktop when prompting for elevation'
+    GPO_Location: Computer Configuration > Windows Settings > Security Settings > Local Policies > Security Options
+    Registry: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+    ValueName: PromptOnSecureDesktop
+    Explanation: Determines whether the elevation prompt (UAC dialog) is shown on the secure desktop (dimmed screen) for added security.
+    Values:
+      '0': Disabled (UAC prompts appear on the interactive user desktop).
+      '1': Enabled (UAC prompts appear on the secure desktop, preventing other applications from interfering).
+    Compatibility: Windows 10 and Windows 11; all editions.
+    Default: 1 (Secure desktop for UAC prompts is enabled by default).
+  FilterAdministratorToken:
+    Category: UAC
+    GPO: 'User Account Control: Admin Approval Mode for the Built-in Administrator account'
+    GPO_Location: Computer Configuration > Windows Settings > Security Settings > Local Policies > Security Options
+    Registry: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+    ValueName: FilterAdministratorToken
+    Explanation: Controls whether the built-in Administrator account uses Admin Approval Mode (UAC). If enabled, the built-in Administrator runs with a split token and receives UAC prompts like a normal admin user; if disabled, that account runs with full administrative privileges without prompts.
+    Values:
+      '0': Disabled (built-in Administrator has full privileges, no UAC prompts).
+      '1': Enabled (built-in Administrator uses UAC and requires consent for elevation).
+    Compatibility: Windows 10 and Windows 11; all editions. (Applies only if the built-in "Administrator" account is enabled; by default that account is disabled.)
+    Default: 0 (Admin Approval Mode for the built-in Administrator is off by default; the account runs without UAC if enabled).
+  LocalAccountTokenFilterPolicy:
+    Category: UAC
+    GPO: N/A (no standard GPO; can be set via registry or Group Policy Preferences)
+    GPO_Location: N/A (configure in registry under Policies\System)
+    Registry: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+    ValueName: LocalAccountTokenFilterPolicy
+    Explanation: Controls Remote UAC restrictions for local accounts. When this is disabled (0), remote sessions using local administrator accounts receive a filtered token (without full admin rights). When enabled (1), it disables the filter so that local administrators retain full privileges over remote connections (e.g., for remote file share or WMI access).
+    Values:
+      '0': Apply remote restrictions (local admins are limited over network, default).
+      '1': Disable remote restrictions (local admins retain full admin token over network).
+    Compatibility: Windows 10 and Windows 11; all editions. (Relevant for remote network access scenarios using local accounts.)
+    Default: 0 (Remote UAC restrictions are enabled by default, limiting local admin credentials remotely).
+
+RDP:
+  DisablePasswordSaving:
+    Category: RDP (Client)
+    GPO: Do not allow passwords to be saved (Remote Desktop Connection Client)
+    GPO_Location: Computer Configuration > Administrative Templates > Windows Components > Remote Desktop Services > Remote Desktop Connection Client
+    Registry: HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services
+    ValueName: DisablePasswordSaving
+    Explanation: Prevents the Remote Desktop Client from saving passwords. If enabled, the "Remember me" option in Remote Desktop Connection is disabled, and users must enter credentials for each connection.
+    Values:
+      '0': Allow password saving (default behavior; users can save credentials).
+      '1': Disable password saving (do not permit storing RDP connection passwords).
+    Compatibility: Windows 10 and Windows 11; all editions for RDP client. (Group Policy administrative template available in Pro/Enterprise; on Home edition the registry can be set manually.)
+    Default: 0 (By default, saving passwords in the RDP client is allowed).
+  fPromptForPassword:
+    Category: RDP (Server)
+    GPO: Always prompt for password upon connection (Remote Desktop Session Host)
+    GPO_Location: Computer Configuration > Administrative Templates > Windows Components > Remote Desktop Services > Remote Desktop Session Host > Security
+    Registry: HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp
+    ValueName: fPromptForPassword
+    Explanation: Determines if the RDP server always prompts for a password at logon. If enabled, the client will always be asked for credentials when connecting (any pre-saved credentials will be ignored).
+    Values:
+      '0': Disabled (allow credential passthrough; the server accepts saved/passed credentials if provided).
+      '1': Enabled (always prompt for a password; do not allow automatic logon).
+    Compatibility: Windows 10 and Windows 11 Pro, Education, Enterprise (systems that support Remote Desktop host). Not applicable on Windows Home (no RDP server).
+    Default: 0 (By default, RDP servers do not force a re-prompt; saved credentials can be used if allowed by the client).
+  fDisableClip:
+    Category: RDP (Server)
+    GPO: Do not allow clipboard redirection
+    GPO_Location: Computer Configuration > Administrative Templates > Windows Components > Remote Desktop Services > Remote Desktop Session Host > Device and Resource Redirection
+    Registry: HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp
+    ValueName: fDisableClip
+    Explanation: Controls whether clipboard sharing is allowed in an RDP session. If enabled (1), the Remote Desktop Session Host will disable clipboard redirection (copy-paste) between the remote session and the client.
+    Values:
+      '0': Clipboard redirection is allowed (default).
+      '1': Clipboard redirection is disabled.
+    Compatibility: Windows 10 and Windows 11 Pro, Education, Enterprise (as RDP host).
+    Default: 0 (By default, clipboard redirection is permitted on RDP sessions).
+
+Credential Delegation:
+  AllowDefaultCredentials:
+    Category: Credential Delegation
+    GPO: Allow delegating default credentials
+    GPO_Location: Computer Configuration > Administrative Templates > System > Credentials Delegation
+    Registry: HKLM:\SOFTWARE\Policies\Microsoft\Windows\CredentialsDelegation
+    ValueName: AllowDefaultCredentials (REG_MULTI_SZ)
+    Explanation: Allows the client to delegate the currently logged-on user's credentials (default credentials) to specified target servers/services (typically for single sign-on scenarios). This policy must be configured with a list of target SPNs or servers to which default credentials can be delegated.
+    Values:
+      (multi-string entries): Each entry in the REG_MULTI_SZ is a target SPN or server name that is allowed. For example, "TERMSRV/host.example.com" for RDP. If the list is empty or the policy is not set, default credentials will not be delegated to any server.
+    Compatibility: Windows 10 and Windows 11; all editions (client-side policy for RDP/CredSSP). Requires Pro/Enterprise for GPO, but registry can be applied on any edition.
+    Default: Not configured (no servers allowed for default credential delegation by default).
+  AllowDefaultCredentialsWhenNTLMOnly:
+    Category: Credential Delegation
+    GPO: Allow delegating default credentials with NTLM-only server authentication
+    GPO_Location: Computer Configuration > Administrative Templates > System > Credentials Delegation
+    Registry: HKLM:\SOFTWARE\Policies\Microsoft\Windows\CredentialsDelegation
+    ValueName: AllowDefaultCredentialsWhenNTLMOnly (REG_MULTI_SZ)
+    Explanation: Allows delegating default (logged-on) credentials to specified target servers even if the server is authenticated only by NTLM (and not Kerberos). This is less secure; typically used if the server is not in the same domain or cannot be Kerberos-authenticated. A list of allowed target servers must be specified.
+    Values:
+      (multi-string entries): List of target server SPNs/names allowed for default credential delegation in NTLM-only scenarios. If not configured or empty, default credentials are not delegated to NTLM-only authenticated servers.
+    Compatibility: Windows 10 and Windows 11; all editions (client policy).
+    Default: Not configured (no delegation to NTLM-only servers allowed by default).
+  AllowSavedCredentials:
+    Category: Credential Delegation
+    GPO: Allow delegating saved credentials
+    GPO_Location: Computer Configuration > Administrative Templates > System > Credentials Delegation
+    Registry: HKLM:\SOFTWARE\Policies\Microsoft\Windows\CredentialsDelegation
+    ValueName: AllowSavedCredentials (REG_MULTI_SZ)
+    Explanation: Allows the client to delegate saved credentials (stored credentials in Windows Credential Manager) to specified target servers. If enabled and configured with target server names, the client may use saved passwords for those targets without prompting the user each time.
+    Values:
+      (multi-string entries): List of target SPNs or server names allowed for saved credential delegation. If not configured, saved credentials will not be delegated to any server by default.
+    Compatibility: Windows 10 and Windows 11; all editions (client-side setting).
+    Default: Not configured (by default, delegation of saved credentials is not allowed).
+  AllowSavedCredentialsWhenNTLMOnly:
+    Category: Credential Delegation
+    GPO: Allow delegating saved credentials with NTLM-only server authentication
+    GPO_Location: Computer Configuration > Administrative Templates > System > Credentials Delegation
+    Registry: HKLM:\SOFTWARE\Policies\Microsoft\Windows\CredentialsDelegation
+    ValueName: AllowSavedCredentialsWhenNTLMOnly (REG_MULTI_SZ)
+    Explanation: Allows delegating saved credentials to specified targets even if the server is only authenticated via NTLM (no Kerberos). Used to permit saved credential usage to non-domain or untrusted servers, which is otherwise blocked for security. Requires specifying the target server list.
+    Values:
+      (multi-string entries): List of target servers for which saved credentials delegation is allowed in NTLM-only authentication scenarios. If not set or empty, no such delegation is allowed by default.
+    Compatibility: Windows 10 and Windows 11; all editions (client-side).
+    Default: Not configured (no saved credential delegation to NTLM-only servers by default).
+
+CredentialStorage:
+  DisableDomainCreds:
+    Category: Credential Storage
+    GPO: 'Network access: Do not allow storage of passwords and credentials for network authentication'
+    GPO_Location: Computer Configuration > Windows Settings > Security Settings > Local Policies > Security Options
+    Registry: HKLM:\SYSTEM\CurrentControlSet\Control\Lsa
+    ValueName: DisableDomainCreds
+    Explanation: Determines whether the system can store credentials (such as passwords) for network authentication. If enabled (1), Windows Credential Manager and similar mechanisms will not store credentials or passwords for later use in network authentication (including Remote Desktop, shared drives, etc.). Users will have to enter credentials each time and cannot save them.
+    Values:
+      '0': Disabled (allow storage of network authentication credentials, default).
+      '1': Enabled (do not store passwords/credentials for network logons).
+    Compatibility: Windows 10 and Windows 11; all editions. Often used in enterprise environments to enhance security by preventing cached credentials.
+    Default: 0 (By default, credential storage is allowed).
+  ScForceOption:
+    Category: Credential Storage
+    GPO: 'Interactive logon: Require smart card'
+    GPO_Location: Computer Configuration > Windows Settings > Security Settings > Local Policies > Security Options
+    Registry: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+    ValueName: ScForceOption
+    Explanation: If enabled, users are required to use a smart card for interactive logon. Password-based logons are disabled, meaning a user without a smart card cannot log in. This is typically used in secure environments where smart cards are issued to all users.
+    Values:
+      '0': Disabled (smart card not required; users can log on with password).
+      '1': Enabled (smart card is required for logon; password logon is disallowed).
+    Compatibility: Windows 10 and Windows 11; requires environment with smart card infrastructure (usually domain-joined systems). Not typically applicable to Windows Home.
+    Default: 0 (Smart card logon is not mandated by default).
+
+RunAs:
+  ShowRunAsDifferentUserInStart:
+    Category: RunAs
+    GPO: Show "Run as different user" command on Start
+    GPO_Location: User Configuration > Administrative Templates > Start Menu and Taskbar
+    Registry: HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer
+    ValueName: ShowRunAsDifferentUserInStart
+    Explanation: Adds the "Run as different user" option to the Start menu context menu for applications. When enabled, users can right-click an application in Start and see the option to run it under alternate credentials without needing to use Shift+Right-click.
+    Values:
+      '0': Disabled/Not Configured (do not show "Run as different user" in Start menu by default).
+      '1': Enabled (show the "Run as different user" option in Start menu context).
+    Compatibility: Windows 10 and Windows 11; available in Pro/Enterprise via group policy. (Has no effect on older OS.)
+    Default: 0 (By default, the option is hidden in Start context menus unless accessed via Shift+Right-click).
+  HideRunAsVerb:
+    Category: RunAs
+    GPO: Remove "Run as" context menu options
+    GPO_Location: User Configuration > Administrative Templates > Windows Components > File Explorer
+    Registry: HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer
+    ValueName: HideRunAsVerb
+    Explanation: Hides the "Run as..." options from context menus. This removes both "Run as administrator" and "Run as different user" from File Explorer context menus, preventing users from using those elevation or alternate user options via the GUI.
+    Values:
+      '0': Disabled/Not Configured (show run-as options normally).
+      '1': Enabled (hide the "Run as" commands from context menus).
+    Compatibility: Windows 10 and Windows 11; all editions (when configured via policy or registry). This policy has existed since earlier Windows versions as well.
+    Default: 0 (By default, run-as context menu options are available).
+  SecondaryLogon:
+    Category: RunAs
+    GPO: Secondary Logon Service (Seclogon) settings
+    GPO_Location: Computer Configuration > Windows Settings > Security Settings > System Services > Secondary Logon
+    Registry: HKLM:\SYSTEM\CurrentControlSet\Services\seclogon
+    ValueName: Start
+    Explanation: Controls the Secondary Logon service, which is required for the "Run as different user" feature to function. If this service is stopped or disabled, users cannot run programs under alternate credentials. The value corresponds to the service start mode.
+    Values:
+      '2': Automatic startup (service starts at boot).
+      '3': Manual startup (service can start on demand as needed for RunAs; default).
+      '4': Disabled (service will not run; "Run as different user" will not be available).
+    Compatibility: Windows 10 and Windows 11; all editions. The Secondary Logon service is present by default on all Windows client systems.
+    Default: 3 (Manual trigger-start by default; the service starts when needed for RunAs).
