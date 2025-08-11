@@ -1,0 +1,472 @@
+- VID: "1096"
+  Name: RED1096
+  Description: Reserver Subnet für Perimeter Bereich
+  Zone: 
+- VID: "1097"
+  Name: RED1097
+  Description: Reserver Subnet für Perimeter Bereich
+  Zone: 
+- VID: "1098"
+  Name: RED1098
+  Description: Reserver Subnet für Perimeter Bereich
+  Zone: 
+- VID: "1099"
+  Name: RED1099
+  Description: Reserver Subnet für Perimeter Bereich
+  Zone: 
+- VID: "1100"
+  Name: RED1100
+  Description: Reserver Subnet für Perimeter Bereich
+  Zone: 
+- VID: "1101"
+  Name: RED1101
+  Description: Reserver Subnet für Perimeter Bereich
+  Zone: 
+- VID: "1102"
+  Name: RED1102
+  Description: Reserver Subnet für Perimeter Bereich
+  Zone: 
+- VID: "1103"
+  Name: RED1103
+  Description: Reserver Subnet für Perimeter Bereich
+  Zone: 
+- VID: "1104"
+  Name: RED1104
+  Description: Reserver Subnet für Perimeter Bereich
+  Zone: 
+- VID: "1105"
+  Name: RED1105
+  Description: Reserver Subnet für Perimeter Bereich
+  Zone: 
+- VID: "1106"
+  Name: RED1106
+  Description: Reserver Subnet für Perimeter Bereich
+  Zone: 
+- VID: "1107"
+  Name: RED1107
+  Description: Reserver Subnet für Perimeter Bereich
+  Zone: 
+- VID: "1108"
+  Name: RED1108
+  Description: Reserver Subnet für Perimeter Bereich
+  Zone: 
+- VID: "1109"
+  Name: RED1109
+  Description: Reserver Subnet für Perimeter Bereich
+  Zone: 
+- VID: "1110"
+  Name: RED1110-DMZ1
+  Description: DMZ Netz für div. Services
+  Zone: DMZ
+- VID: "1111"
+  Name: RED1111-DMZ2
+  Description: DMZ Reserve
+  Zone: DMZ
+- VID: "1112"
+  Name: RED1112-LOCKDOWN
+  Description: Isolationsnetz f. Angreifer & kompromittierte Systeme. Volle Isolierung, keine Kommunikation in andere Netzwerke, Infected Hosts
+  Zone: Lockdown
+- VID: "1113"
+  Name: RED1113-GUEST
+  Description: Gästenetzwerk / Fremdgeräte (wired & wireless)
+  Zone: Guest
+- VID: "1114"
+  Name: RED1114-LOADBALANCER
+  Description: LOADBALANCER Systeme, O365 Hybrid
+  Zone: Loadbalancer
+- VID: "1115"
+  Name: RED1115-QUARANTINE
+  Description: Isolationsnetz f. gefährdete Geräte, non-compliant devices
+  Zone: Qurantine
+- VID: "1116"
+  Name: RED1116-JUMPNET
+  Description: Jumphost f. Dritthersteller / wenig vertrauenswürdige Externe (Wartung/One-Time-Jobs/etc.)
+  Zone: DMZ-Jump
+- VID: "1117"
+  Name: RED1117-UMBRELLA
+  Description: Netz für die Cisco Umbrella Appliances
+  Zone: Umbrella
+- VID: "1118"
+  Name: RED1118
+  Description: Reserver Subnet für Perimeter Bereich
+  Zone: 
+- VID: "1119"
+  Name: RED1119
+  Description: Reserver Subnet für Perimeter Bereich
+  Zone: 
+- VID: "1120"
+  Name: RED1120-ALARM
+  Description: Netz f. Alarmanlage, Providermanaged A1, Zutrittssystem Cloudbased
+  Zone: Alarm
+- VID: "1121"
+  Name: RED1121-SECOPS
+  Description: Netz f. BPN Scanning Engines & Attack Simulation Hosts
+  Zone: Secops
+- VID: "1122"
+  Name: RED1122
+  Description: Reserver Subnet für Perimeter Bereich
+  Zone: 
+- VID: "1123"
+  Name: RED1123
+  Description: Reserver Subnet für Perimeter Bereich
+  Zone: 
+- VID: "1124"
+  Name: RED1124
+  Description: Reserver Subnet für Perimeter Bereich
+  Zone: 
+- VID: "1125"
+  Name: RED1125
+  Description: Reserver Subnet für Perimeter Bereich
+  Zone: 
+- VID: "1126"
+  Name: RED1126
+  Description: Reserver Subnet für Perimeter Bereich
+  Zone: 
+- VID: "1127"
+  Name: RED1127
+  Description: Reserver Subnet für Perimeter Bereich
+  Zone: 
+- VID: "901"
+  Name: Transfer-MPLS
+  Description: Transfer Netz Core Firewall - MPLS Kostwein
+  Zone: tn-mpls
+- VID: 
+  Name: MPLS Gateway IP
+  Description: MPLS Router IP
+  Zone: 
+- VID: "801"
+  Name: Transfer-Datacenter
+  Description: Transfer Netz Core Firewall - Meraki/CoreSwitch
+  Zone: tn-dc
+- VID: 
+  Name: DC Gateway IP
+  Description: Meraki Switch
+  Zone: 
+- VID: "803"
+  Name: Transfer-OT
+  Description: Transfer Netz OT zu Core Firewall
+  Zone: tn-ot
+- VID: 
+  Name: OT Gateway IP
+  Description: 
+  Zone: 
+- VID: "1128"
+  Name: DC1128
+  Description: Reserve Subnetz für Datacenter
+  Zone: 
+- VID: "1129"
+  Name: DC1129
+  Description: Reserve Subnetz für Datacenter
+  Zone: 
+- VID: "1130"
+  Name: DC1130-DCS
+  Description: Netz f. Domain Controller
+  Zone: DCS
+- VID: "1131"
+  Name: DC1131-SRV
+  Description: Netz f. Server
+  Zone: Server
+- VID: "1132"
+  Name: DC1132-ERP
+  Description: Netz für ERP System Server
+  Zone: ERP
+- VID: "1133"
+  Name: DC1133-ERP-DEV
+  Description: Netz f. ERP Systeme DEV Systeme
+  Zone: ERP
+- VID: "1134"
+  Name: DC1134-ERP-TEST
+  Description: Netz f. ERP Systeme TEST
+  Zone: ERP
+- VID: "1135"
+  Name: DC1135-JUMPNET
+  Description: Jumphost f. Admins um in sensible bereiche zu gelangen (zb. Ins VLAN141, 140, etc.)
+  Zone: Jump-intern
+- VID: "1136"
+  Name: DC1136-VAULT
+  Description: Netz f. zukünftiges Keymgmt (HSM) oder Schlüsseltresore, etc.
+  Zone: Vault
+- VID: "1137"
+  Name: DC1137-CIFS
+  Description: Anbindung Clients zu CIFS Shares
+  Zone: CIFS
+- VID: "1138"
+  Name: DC1138
+  Description: Reserve Subnetz für Datacenter
+  Zone: 
+- VID: "1139"
+  Name: DC1139
+  Description: Reserve Subnetz für Datacenter
+  Zone: 
+- VID: "1140"
+  Name: DC1140-SECOPS
+  Description: Netz für innen gelagerte Attack Simulation Komponenten (scanner, Logfile Targets, etc)
+  Zone: Secops
+- VID: "1141"
+  Name: DC1141-DIAG
+  Description: Segment f. Traffic Analyse, Diagnosedaten, Netflows, etc.
+  Zone: Diag
+- VID: "1142"
+  Name: DC1142
+  Description: Reserve Subnetz für Datacenter
+  Zone: 
+- VID: "1143"
+  Name: DC1143
+  Description: Reserve Subnetz für Datacenter
+  Zone: 
+- VID: "1144"
+  Name: DC1144
+  Description: Reserve Subnetz für Datacenter
+  Zone: 
+- VID: "1145"
+  Name: DC1145
+  Description: Reserve Subnetz für Datacenter
+  Zone: 
+- VID: "1146"
+  Name: DC1146
+  Description: Reserve Subnetz für Datacenter
+  Zone: 
+- VID: "1147"
+  Name: DC1147
+  Description: Reserve Subnetz für Datacenter
+  Zone: 
+- VID: "1148"
+  Name: DC1148
+  Description: Reserve Subnetz für Datacenter
+  Zone: 
+- VID: "1149"
+  Name: DC1149
+  Description: Reserve Subnetz für Datacenter
+  Zone: 
+- VID: "1150"
+  Name: DC1150-VMware
+  Description: VMWare Management (vCenter MGMT,esx MGMT)
+  Zone: VMware
+- VID: "1151"
+  Name: DC1151
+  Description: Reserve Subnetz für Datacenter
+  Zone: 
+- VID: "1152"
+  Name: DC1152
+  Description: Reserve Subnetz für Datacenter
+  Zone: 
+- VID: "1153"
+  Name: DC1153
+  Description: Reserve Subnetz für Datacenter
+  Zone: 
+- VID: "1154"
+  Name: DC1154
+  Description: Reserve Subnetz für Datacenter
+  Zone: 
+- VID: "1155"
+  Name: DC1155
+  Description: Reserve Subnetz für Datacenter
+  Zone: 
+- VID: "1156"
+  Name: DC1156
+  Description: Reserve Subnetz für Datacenter
+  Zone: tn-dc
+- VID: "1157"
+  Name: DC1157-NFS
+  Description: Anbindung der Hypervisor und anderen Komponenten an Netapp iSCSI LUNs
+  Zone: tn-dc
+- VID: "1158"
+  Name: DC1158-NETAPP
+  Description: Netapp Peering Netzwerk (Querverbindungen zwischen Netapp Shelves / Systemen)
+  Zone: tn-dc
+- VID: "1159"
+  Name: DC1159-BACKUP
+  Description: Datenströme von Backup Servern zu NAS/CIFS/NFS/S3 Backup Destinations
+  Zone: tn-dc
+- VID: "1160"
+  Name: IT1160-CLI-IT
+  Description: Clients IT
+  Zone: Clients
+- VID: "1161"
+  Name: IT1161-CLI-FI_HR
+  Description: Clients Finacial/HR
+  Zone: Clients
+- VID: "1162"
+  Name: IT1162-CLI-PUR
+  Description: Clients Purchase
+  Zone: Clients
+- VID: "1163"
+  Name: IT1163-CLI-SALES
+  Description: Clients Sales
+  Zone: Clients
+- VID: "1164"
+  Name: IT1164-CLI-PM
+  Description: Clients Project Management
+  Zone: Clients
+- VID: "1165"
+  Name: IT1165-CLI-QM
+  Description: Clients Quality Management
+  Zone: Clients
+- VID: "1166"
+  Name: IT1166-CLI-DEV
+  Description: Clients Developer
+  Zone: Clients
+- VID: "1167"
+  Name: IT1167-CLI-MAINT
+  Description: Clients Maintenance
+  Zone: Clients
+- VID: "1168"
+  Name: IT1168-CLI-PROD
+  Description: Clients Production
+  Zone: Clients
+- VID: "1169"
+  Name: IT1169-CLI-ASS
+  Description: Clients Assembly
+  Zone: Clients
+- VID: "1170"
+  Name: IT1170-CLI-CONS
+  Description: Clients Construction
+  Zone: Clients
+- VID: "1171"
+  Name: IT1171
+  Description: Reserve Subnetz  für IT-Netze
+  Zone: 
+- VID: "1172"
+  Name: IT1172
+  Description: Reserve Subnetz  für IT-Netze
+  Zone: 
+- VID: "1173"
+  Name: IT1173
+  Description: Reserve Subnetz  für IT-Netze
+  Zone: 
+- VID: "1174"
+  Name: IT1174
+  Description: Reserve Subnetz  für IT-Netze
+  Zone: 
+- VID: "1175"
+  Name: IT1175
+  Description: Reserve Subnetz  für IT-Netze
+  Zone: 
+- VID: "1176"
+  Name: IT1176
+  Description: Reserve Subnetz  für IT-Netze
+  Zone: 
+- VID: "1177"
+  Name: IT1177
+  Description: Reserve Subnetz  für IT-Netze
+  Zone: 
+- VID: "1178"
+  Name: IT1178
+  Description: Reserve Subnetz  für IT-Netze
+  Zone: 
+- VID: "1179"
+  Name: IT1179
+  Description: Reserve Subnetz  für IT-Netze
+  Zone: 
+- VID: "1180"
+  Name: IT1180
+  Description: Reserve Subnetz  für IT-Netze
+  Zone: 
+- VID: "1181"
+  Name: IT1181
+  Description: Reserve Subnetz  für IT-Netze
+  Zone: 
+- VID: "1182"
+  Name: IT1182
+  Description: Reserve Subnetz  für IT-Netze
+  Zone: 
+- VID: "1183"
+  Name: IT1183
+  Description: Reserve Subnetz  für IT-Netze
+  Zone: 
+- VID: "1184"
+  Name: IT1184
+  Description: Reserve Subnetz  für IT-Netze
+  Zone: 
+- VID: "1185"
+  Name: IT1185-PRINTER
+  Description: '[IT] PRINTER'
+  Zone: Printer
+- VID: "1186"
+  Name: IT1186
+  Description: Reserve Subnetz  für IT-Netze
+  Zone: 
+- VID: "1187"
+  Name: IT1187
+  Description: Reserve Subnetz  für IT-Netze
+  Zone: 
+- VID: "1188"
+  Name: IT1188
+  Description: Reserve Subnetz  für IT-Netze
+  Zone: 
+- VID: "1189"
+  Name: IT1189
+  Description: Reserve Subnetz  für IT-Netze
+  Zone: 
+- VID: "1190"
+  Name: IT1190-PERIPHERAL
+  Description: '[IT] PERIPHERAL'
+  Zone: IoT
+- VID: "1191"
+  Name: IT1191-RUGGED
+  Description: Subnetz für Barcodescanner (Wireless)
+  Zone: Rugged
+- VID: "1192"
+  Name: INF1192-BCS
+  Description: Netz f. Building Control (Stempeluhren)
+  Zone: BCS
+- VID: "1193"
+  Name: INF1193-CCTV
+  Description: Netz f. Videokameras und Videoüberwachungssysteme
+  Zone: CCTV
+- VID: "1194"
+  Name: INF1194-VOIP
+  Description: netz f. VOIP / SIP / H264 / Videokonferenzssysteme / Multimedia Technik
+  Zone: VoIP
+- VID: "1195"
+  Name: INF1195
+  Description: Reserve Subnetz für Infrastrukturnetze
+  Zone: 
+- VID: "1196"
+  Name: INF1196
+  Description: Reserve Subnetz für Infrastrukturnetze
+  Zone: 
+- VID: "1197"
+  Name: INF1197
+  Description: Reserve Subnetz für Infrastrukturnetze
+  Zone: 
+- VID: "1198"
+  Name: INF1198
+  Description: Reserve Subnetz für Infrastrukturnetze
+  Zone: 
+- VID: "1199"
+  Name: INF1199
+  Description: Reserve Subnetz für Infrastrukturnetze
+  Zone: 
+- VID: "1200"
+  Name: INF1200-LAN-MGMT
+  Description: Meraki Control Netzwerk (Management IP Adressen Switches,AccessPoints)
+  Zone: LAN-Mgmt
+- VID: "1201"
+  Name: INF1201
+  Description: Reserve Subnetz für Infrastrukturnetze
+  Zone: 
+- VID: "1202"
+  Name: INF1202-FW-MGMT
+  Description: Management für Firewallsysteme
+  Zone: FW-Mgmt
+- VID: "1203"
+  Name: INF1203-FE-MGMT
+  Description: Management Netzwerk für Fireeye
+  Zone: FE-Mgmt
+- VID: "1204"
+  Name: INF1204-Storage-MGMT
+  Description: Management für Storagesystem (Netapp)
+  Zone: Storage-Mgmt
+- VID: "1205"
+  Name: INF1205-Server-MGMT
+  Description: Management Netzwerk mit kritischen Interfaces (iDRAC,ILO,CIMC)
+  Zone: Server-Mgmt
+- VID: "1206"
+  Name: INF1206
+  Description: Reserve Subnetz für Infrastrukturnetze
+  Zone: 
+- VID: "1207"
+  Name: INF1207
+  Description: Reserve Subnetz für Infrastrukturnetze
+  Zone: 

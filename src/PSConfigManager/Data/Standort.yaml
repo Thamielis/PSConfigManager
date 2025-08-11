@@ -1,0 +1,134 @@
+AT:
+  Firma: Kostwein Maschinenbau GmbH
+  Country:
+    c: AT
+    co: Österreich
+    Country: Austria
+    countrycode: 40
+  Bundesland: Carinthia
+  State: Kärnten
+  PreferredLanguage: de-AT
+  Branches:
+    KL:
+      Prefix: ATKL
+      City: Klagenfurt
+      PostalCode: "9020"
+      StreetAddress: Berthold-Schwarz-Straße 51
+      Werk: []
+      Kostenstelle: 0
+    ZL:
+      Prefix: ATZL
+      City: Klagenfurt
+      PostalCode: "9020"
+      StreetAddress: Fallegasse 3
+      Werk: []
+      Kostenstelle: 0
+    MS:
+      Prefix: ATMS
+      City: Maria Saal
+      PostalCode: "9063"
+      StreetAddress: Ratzendorf 2A
+      Werk: []
+      Kostenstelle: 0
+    VK:
+      Prefix: ATVK
+      City: Völkermarkt
+      PostalCode: "9100"
+      StreetAddress: Petzenweg 7
+      Werk: []
+      Kostenstelle: 0
+    UB:
+      Prefix: ATUB
+      City: Unterbergen
+      PostalCode: "9163"
+      StreetAddress: Unterbergen 24
+      Werk: []
+      Kostenstelle: 0
+    SV:
+      Prefix: ATSV
+      City: St.Veit
+      PostalCode: "9300"
+      StreetAddress: Industrieparkstraße 1
+      Werk: []
+      Kostenstelle: 0
+HR:
+  Firma: Kostwein Proizvodnja Strojeva d.o.o.
+  Country:
+    c: HR
+    co: Kroatien
+    Country: Croatia
+    countrycode: 191
+  Bundesland: Gespanschaft Varaždin
+  State: Varaždin County
+  PreferredLanguage: hr-HR
+  Branches:
+    TR:
+      Prefix: HRTR
+      City: Varazdin
+      PostalCode: "42000"
+      StreetAddress: Podravska ulica 37
+      Werk: []
+      Kostenstelle: 0
+    VA:
+      Prefix: HRVA
+      City: Varazdin
+      PostalCode: "42202"
+      StreetAddress: Gospodarska 11
+      Werk: []
+      Kostenstelle: 0
+IN:
+  Firma: Kostwein India Company Private Ltd
+  Country:
+    c: IN
+    co: Indien
+    Country: India
+    countrycode: 356
+  Bundesland: Gujarat
+  State: Gujarat
+  PreferredLanguage: hi-IN
+  Branches:
+    AB:
+      Prefix: INAB
+      City: Ahmedabad
+      PostalCode: "382405"
+      StreetAddress: Plot N0. 170, N.I D.C. Industrial Estate
+      Werk:
+      - 15
+      - 17
+      Kostenstelle: 80000
+IT:
+  Firma: Kostwein Metalinox S.r.l.
+  Country:
+    c: IT
+    co: Italien
+    Country: Italy
+    countrycode: 380
+  Bundesland: Friuli-Venezia Giulia
+  State: Friuli Venezia Giulia
+  PreferredLanguage: it-IT
+  Branches:
+    UD:
+      Prefix: ITUD
+      City: Fiumicello Villa Vicentina
+      PostalCode: "33059"
+      StreetAddress: Via Cortona, 13
+      Werk: []
+      Kostenstelle: 0
+US:
+  Firma: Kostwein Corporation
+  Country:
+    c: US
+    co: USA
+    Country: America
+    countrycode: 840
+  Bundesland: South Carolina
+  State: South Carolina
+  PreferredLanguage: en-US
+  Branches:
+    GR:
+      Prefix: USGR
+      City: Greenville
+      PostalCode: SC29615
+      StreetAddress: 500 Hartness Dr
+      Werk: []
+      Kostenstelle: 0
