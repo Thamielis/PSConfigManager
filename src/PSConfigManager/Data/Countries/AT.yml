@@ -1,0 +1,9 @@
+# AT.yml
+---
+version: 1.0.0
+countries: !!map
+  AT:
+    name: Austria
+    c: AT
+    co: Österreich
+    countrycode: 40

@@ -1,0 +1,16 @@
+# Main.yml
+---
+# config/manifest.yml
+includes:
+- Countries/*.yml
+- Branches/*/*.yml
+- Features/VLAN/*.yml
+- Features/Veeam/defaults.yml # safe defaults
+
+# optional build defaults
+build:
+  features: [ veeam, vlan ]
+  countries: [ AT, HR, IN, IT, US ]
+  branches: [] # empty = all in those countries
+  sections: [] # limit top-level sections if you want (e.g., [countries, vlanRanges])
+

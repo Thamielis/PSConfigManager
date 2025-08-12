@@ -150,6 +150,8 @@ $CleanRanges = $VLANRanges | Convert-VlanRangesToRows
 $VLANs = $CleanRanges | Select-Object -Property VID, Name, Description, Zone -Unique
 $VLANs | ConvertTo-Yaml -OutFile "C:\Users\admmellunigm\GitHub\PSConfigManager\src\PSConfigManager\Data\NetzwerkSegment.yaml" -Options WithIndentedSequences
 
+#TODO: Per Standort VLANs verknüpfen.
+
 $CleanRangeGroups = $CleanRanges | Group-Object -AsHashTable -AsString -Property City | Sort-Object -Property City
 
 ##############################################

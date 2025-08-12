@@ -6,6 +6,30 @@
     // specifies the PowerShell coding style used in this project (https://github.com/PoshCode/PowerShellPracticeAndStyle/issues/81)
     "powershell.codeFormatting.preset": "Custom",
     "sarif-viewer.connectToGithubCodeScanning": "off",
-    "prompty.currentModelConfiguration": "gpt-3.5-turbo"
+    "prompty.currentModelConfiguration": "gpt-3.5-turbo",
+    "yaml.schemas": {
+        "file:///c%3A/Users/admmellunigm/.vscode/extensions/docsmsft.docs-yaml-1.0.1/dist/toc.schema.json": "/toc\\.yml/i",
+        "https://raw.githubusercontent.com/netascode/schema/main/schema.json": "file:///c%3A/Users/admmellunigm/GitHub/PSConfigManager/src/PSConfigManager/Data/Test.yml"
+    },
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#0755a1",
+        "activityBar.background": "#0755a1",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#f748a1",
+        "activityBarBadge.foreground": "#15202b",
+        "commandCenter.border": "#e7e7e799",
+        "sash.hoverBorder": "#0755a1",
+        "statusBar.background": "#053b70",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#0755a1",
+        "statusBarItem.remoteBackground": "#053b70",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "titleBar.activeBackground": "#053b70",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#053b7099",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#053B70"
 }
 
